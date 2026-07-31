@@ -130,3 +130,4 @@ jobs:
           done
           echo "##[error] NAO CONSEGUI SALVAR O ESTADO APOS 5 TENTATIVAS -- risco real de post duplicado na proxima execucao"
           exit 1
+
