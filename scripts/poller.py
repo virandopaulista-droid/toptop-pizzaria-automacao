@@ -1,0 +1,192 @@
+#!/usr/bin/env python3
+"""Checks whether now matches a scheduled TopTop Pizzaria story slot and, if
+so, picks one unused asset from content/agente_stories_manifest.json and
+posts it (Facebook + Instagram Stories). Meant to be invoked frequently
+(every ~15min) by a GitHub Actions cron during the relevant windows.
+
+No week-plan/approval step like Bernardino: TopTop only posts stories (no
+feed), one item at a time, straight from the categorized manifest pool.
+
+Schedule:
+  Mon-Fri 20:00  -> 1 story
+  Sat-Sun 18:00 and 20:00 -> 2 stories
+
+Catch-up, not a narrow window: fires as soon as "now" is at or past a
+scheduled time (same day), and keeps trying on every later tick until that
+slot is marked posted for today -- GitHub's own cron schedule has proven
+unreliable about landing near its configured time (see Bernardino's
+memory/bernardino-restaurante-automation.md), so a narrow match window can
+cause entire days to silently post nothing.
+
+Defaults to --dry-run (prints what it would do, does NOT call Facebook).
+Pass --live to actually publish.
+"""
+import datetime
+import json
+import os
+import subprocess
+import sys
+
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
+LOG_PATH = os.path.join(PROJECT_DIR, "content", "posted_log.json")
+
+# weekday(): Monday=0 ... Sunday=6
+SCHEDULE = [
+    {"slot": "story", "weekdays": {0, 1, 2, 3, 4}, "hour": 20, "minute": 0},
+    {"slot": "story_1", "weekdays": {5, 6}, "hour": 18, "minute": 0},
+    {"slot": "story_2", "weekdays": {5, 6}, "hour": 20, "minute": 0},
+]
+
+DRY_RUN = "--live" not in sys.argv[1:]
+
+
+def _arg_value(name):
+    args = sys.argv[1:]
+    if name in args:
+        idx = args.index(name)
+        if idx + 1 < len(args):
+            return args[idx + 1]
+    return None
+
+
+FORCE_SLOT = _arg_value("--force-slot")
+
+
+def run(cmd):
+    env = dict(os.environ, PYTHONIOENCODING="utf-8")
+    result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", env=env)
+    if result.returncode != 0:
+        print(f"ERRO rodando {cmd}:\n{result.stderr}", file=sys.stderr)
+        raise SystemExit(1)
+    return result.stdout.strip()
+
+
+def bash(script_rel, *args):
+    return run(["bash", os.path.join(SCRIPTS_DIR, script_rel), *args])
+
+
+def python(script_rel, *args):
+    return run([sys.executable, os.path.join(SCRIPTS_DIR, script_rel), *args])
+
+
+PATH_ANCHORS = [
+    ("AGENTE - STORIES", lambda: os.environ.get("AGENTE_STORIES_DIR", "")),
+]
+
+
+def _find_by_normalized_name(dir_path, target_name):
+    import unicodedata
+    target_norm = unicodedata.normalize("NFC", target_name)
+    try:
+        entries = os.listdir(dir_path)
+    except OSError:
+        return None
+    for entry in entries:
+        if unicodedata.normalize("NFC", entry) == target_norm:
+            return os.path.join(dir_path, entry)
+    return None
+
+
+def resolve_path(path):
+    if os.path.exists(path):
+        return path
+    normalized = path.replace("\\", "/")
+    for anchor, get_base in PATH_ANCHORS:
+        idx = normalized.find(anchor)
+        if idx == -1:
+            continue
+        base = get_base()
+        if not base:
+            continue
+        remainder = normalized[idx + len(anchor):].lstrip("/")
+        candidate = os.path.join(base, remainder)
+        if os.path.exists(candidate):
+            return candidate
+        found = _find_by_normalized_name(os.path.dirname(candidate), os.path.basename(candidate))
+        if found:
+            return found
+    return path
+
+
+def notify_once(marker, body):
+    """Best-effort GitHub Issue notification -- never raises."""
+    try:
+        title = f"[poller] {marker}"
+        check = subprocess.run(
+            ["gh", "issue", "list", "--search", f'"{title}" in:title', "--state", "open", "--json", "number"],
+            capture_output=True, text=True,
+        )
+        if check.returncode == 0 and check.stdout.strip() and check.stdout.strip() != "[]":
+            return
+        subprocess.run(["gh", "issue", "create", "--title", title, "--body", body], capture_output=True, text=True)
+    except Exception as e:
+        print(f"AVISO: notify_once falhou (nao critico): {e}", file=sys.stderr)
+
+
+def load_log():
+    if not os.path.exists(LOG_PATH):
+        return {}
+    with open(LOG_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def save_log(log):
+    with open(LOG_PATH, "w", encoding="utf-8") as f:
+        json.dump(log, f, ensure_ascii=False, indent=2)
+
+
+def handle_story():
+    line = python("select_story.py")
+    category, type_, path = line.split("\t")
+    path = resolve_path(path)
+    print(f"Selecionado ({category}, {type_}): {path}")
+    if DRY_RUN:
+        print(f"[DRY-RUN] postaria {type_}: {path}")
+        return {"category": category, "type": type_, "path": path}
+
+    if type_ == "image":
+        print(bash("post_story_all.sh", path))
+    else:
+        print(bash("post_story_video_fb.sh", path))
+        fname = os.path.basename(path)
+        video_url = python("resolve_drive_url.py", fname)
+        print(bash("post_story_video_instagram.sh", video_url))
+    return {"category": category, "type": type_, "path": path}
+
+
+def main():
+    now = datetime.datetime.now()
+    today_key = now.date().isoformat()
+
+    if FORCE_SLOT:
+        print(f"Forcando slot '{FORCE_SLOT}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
+        result = handle_story()
+        if not DRY_RUN:
+            log = load_log()
+            log[f"{today_key}_{FORCE_SLOT}"] = {"posted_at": now.isoformat(timespec="seconds"), **result}
+            save_log(log)
+        return
+
+    log = load_log()
+    for entry in SCHEDULE:
+        if now.weekday() not in entry["weekdays"]:
+            continue
+        scheduled = now.replace(hour=entry["hour"], minute=entry["minute"], second=0, microsecond=0)
+        if now < scheduled:
+            continue
+        key = f"{today_key}_{entry['slot']}"
+        if key in log:
+            continue
+        print(f"Disparando slot '{entry['slot']}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
+        result = handle_story()
+        if not DRY_RUN:
+            log[key] = {"posted_at": now.isoformat(timespec="seconds"), **result}
+            save_log(log)
+        return
+
+    print("Nenhum slot devido agora.")
+
+
+if __name__ == "__main__":
+    main()

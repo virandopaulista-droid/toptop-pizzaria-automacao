@@ -1,0 +1,460 @@
+{
+  "_readme": "Manifest for pre-made story assets in 'AGENTE - STORIES' (TopTop Pizzaria). Each entry: file (relative to that folder), category (salgada|doce), type (image|video), used, used_at. Categorized 2026-07-31 by visually inspecting every asset (frame extraction for videos). Excludes: institucional/preparo shots (dough being made, logo, no finished pizza visible) and 3 files that disappeared during Drive sync (120,121,122.mp4) and 1 corrupted file (153.mp4, 18KB).",
+  "assets": [
+    {
+      "file": "91.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "92.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "93.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "94.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "96.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "97.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "98.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "99.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "100.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "101.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "102.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "103.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "105.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "106.mp4",
+      "category": "doce",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "107.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "108.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "109.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "110.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "111.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "112.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "113.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "114.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "116.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "117.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "118.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "124.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "125.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "126.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "127.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "128.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "129.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "130.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "131.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "132.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "133.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "134.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "135.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "136.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "137.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "138.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "139.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "140.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "142.mp4",
+      "category": "doce",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "144.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "145.mp4",
+      "category": "doce",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "146.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "147.mp4",
+      "category": "doce",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "148.mp4",
+      "category": "doce",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "149.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "150.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "151.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "152.mp4",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "099ABD72-CE40-40E9-A8C8-BC27C7EA37AB.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "88789800-AEEB-49F6-A783-9DA68377D4BB.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "89083964-575A-4279-A4C4-AE409725D89F.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "A31041D2-EB2A-4B8D-B1F1-0C541018E0EA.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "A45BA167-E794-4D32-9AFA-790A09ACF397.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "B40D1DE6-7CFB-4233-A46F-916B3AF76F0E.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "E0C04A7B-36F7-4025-ACE5-33A88612F9D8.jpg",
+      "category": "doce",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "E3F5FD4F-495D-45C0-9D0C-543C57F794E5.jpg",
+      "category": "doce",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "E599338A-831B-4C6E-90EA-9D4C9A8FFCBC.jpg",
+      "category": "salgada",
+      "type": "image",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "42fe682ecba1404e8c512e71bc0dccf2.mov",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "5a25db8a2f3644ecb3cf4d4b0d809692.mov",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "d8e15dd833c245459d92527d96c5a5e1.mov",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    },
+    {
+      "file": "f0b1c64213f74e14955d5f92f2616cf5.mov",
+      "category": "salgada",
+      "type": "video",
+      "used": false,
+      "used_at": null
+    }
+  ]
+}
