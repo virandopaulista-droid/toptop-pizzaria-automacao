@@ -95,6 +95,15 @@ jobs:
           agente_dir="${agente_dir%/}"
           echo "AGENTE_STORIES_DIR=$agente_dir" >> "$GITHUB_ENV"
 
+      - name: Write .env
+        run: |
+          cat > .env <<EOF
+          FB_PAGE_ACCESS_TOKEN="$FB_PAGE_ACCESS_TOKEN"
+          FB_PAGE_ID="$FB_PAGE_ID"
+          IG_BUSINESS_ID="$IG_BUSINESS_ID"
+          EOF
+          cat .env | sed 's/^\(FB_PAGE_ACCESS_TOKEN\)=.*/\1=***/'
+
       - name: Run poller
         run: |
           extra_args=()
