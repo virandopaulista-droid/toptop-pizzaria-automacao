@@ -155,20 +155,47 @@ def handle_story():
     return {"category": category, "type": type_, "path": path}
 
 
+def check_missed_days(now, log, lookback_days=7):
+    """Alerts (once per day) for any of the last `lookback_days` whose
+    schedule wasn't fully posted -- catches the case where GitHub's cron
+    never fired at all inside that day's window (or the poller itself didn't
+    run for a while), which the same-day-only catch-up above can't recover
+    from on its own."""
+    for days_ago in range(1, lookback_days + 1):
+        day = now.date() - datetime.timedelta(days=days_ago)
+        day_key = day.isoformat()
+        missed = [
+            entry["slot"] for entry in SCHEDULE
+            if day.weekday() in entry["weekdays"]
+            and f"{day_key}_{entry['slot']}" not in log
+        ]
+        if missed:
+            notify_once(
+                f"stories perdidos em {day_key}",
+                f"O agendamento de {day_key} nao rodou (ou rodou incompleto): "
+                f"slot(s) {', '.join(missed)} nunca foram postados nesse dia e o "
+                f"catch-up so cobre o mesmo dia, entao ficaram perdidos. "
+                f"Causa provavel: o cron do GitHub Actions nao disparou nenhuma vez "
+                f"dentro da janela do dia (ver comentario em poller.yml)."
+            )
+
+
 def main():
     now = datetime.datetime.now()
     today_key = now.date().isoformat()
+    log = load_log()
+
+    if not DRY_RUN:
+        check_missed_days(now, log)
 
     if FORCE_SLOT:
         print(f"Forcando slot '{FORCE_SLOT}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
         result = handle_story()
         if not DRY_RUN:
-            log = load_log()
             log[f"{today_key}_{FORCE_SLOT}"] = {"posted_at": now.isoformat(timespec="seconds"), **result}
             save_log(log)
         return
 
-    log = load_log()
     for entry in SCHEDULE:
         if now.weekday() not in entry["weekdays"]:
             continue
