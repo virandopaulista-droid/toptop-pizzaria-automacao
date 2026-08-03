@@ -8,8 +8,8 @@ No week-plan/approval step like Bernardino: TopTop only posts stories (no
 feed), one item at a time, straight from the categorized manifest pool.
 
 Schedule:
-  Mon-Fri 20:00  -> 1 story
-  Sat-Sun 18:00 and 20:00 -> 2 stories
+  Mon-Thu 20:00 -> 1 story
+  Fri-Sun 19:30 and 21:30 -> 2 stories
 
 Catch-up, not a narrow window: fires as soon as "now" is at or past a
 scheduled time (same day), and keeps trying on every later tick until that
@@ -33,9 +33,9 @@ LOG_PATH = os.path.join(PROJECT_DIR, "content", "posted_log.json")
 
 # weekday(): Monday=0 ... Sunday=6
 SCHEDULE = [
-    {"slot": "story", "weekdays": {0, 1, 2, 3, 4}, "hour": 20, "minute": 0},
-    {"slot": "story_1", "weekdays": {5, 6}, "hour": 18, "minute": 0},
-    {"slot": "story_2", "weekdays": {5, 6}, "hour": 20, "minute": 0},
+    {"slot": "story", "weekdays": {0, 1, 2, 3}, "hour": 20, "minute": 0},
+    {"slot": "story_1", "weekdays": {4, 5, 6}, "hour": 19, "minute": 30},
+    {"slot": "story_2", "weekdays": {4, 5, 6}, "hour": 21, "minute": 30},
 ]
 
 DRY_RUN = "--live" not in sys.argv[1:]
