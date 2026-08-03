@@ -2,15 +2,15 @@ name: Poller (stories)
 
 on:
   schedule:
-    # Every 15 min, 21-23 UTC (18:00-20:59 America/Sao_Paulo, no DST), every
-    # day. Covers both the weekday single 20h slot and the weekend 18h+20h
-    # slots -- poller.py's own SCHEDULE + weekday filter decides what
-    # actually fires. Wide + frequent on purpose: GitHub's cron does not
+    # Every 15 min, 22-23 + 00 UTC (19:30-21:59 America/Sao_Paulo, no DST),
+    # every day. Covers both the Mon-Thu single 20h slot and the Fri-Sun
+    # 19:30+21:30 slots -- poller.py's own SCHEDULE + weekday filter decides
+    # what actually fires. Wide + frequent on purpose: GitHub's cron does not
     # reliably fire at the configured time (see Bernardino's automation),
     # and poller.py does catch-up matching (fires on whatever tick lands
     # after a scheduled time, same day), so a wide window matters more here
     # than an exact one.
-    - cron: "*/15 21-23 * * *"
+    - cron: "*/15 22,23,0 * * *"
   workflow_dispatch:
     inputs:
       live:
