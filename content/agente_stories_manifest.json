@@ -103,8 +103,8 @@
       "file": "107.mp4",
       "category": "salgada",
       "type": "video",
-      "used": false,
-      "used_at": null
+      "used": true,
+      "used_at": "2026-08-05T20:14:01"
     },
     {
       "file": "108.mp4",
