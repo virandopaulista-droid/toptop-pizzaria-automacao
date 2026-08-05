@@ -124,6 +124,27 @@ def notify_once(marker, body):
         print(f"AVISO: notify_once falhou (nao critico): {e}", file=sys.stderr)
 
 
+def handle_partial_failure(slot_label, exc, now):
+    """A handler crashed mid-posting (e.g. the Facebook leg of a video story
+    succeeded but the Instagram leg errored). There's no way to tell from
+    here which legs actually went out for real. Marking the slot posted
+    anyway is the safer failure mode: it stops the next tick from blindly
+    re-running the whole handler and re-posting whatever already went out
+    for real (this exact bug caused a real duplicate post on Bernardino's
+    automation on 2026-08-05 -- see that repo's poller.py for the original
+    writeup; applied here too since TopTop's handle_story() has the same
+    multi-step-without-partial-tracking shape)."""
+    print(f"##[error] Falha ao publicar '{slot_label}': {exc}", file=sys.stderr)
+    notify_once(
+        f"post-falhou-{now.date().isoformat()}-{slot_label}",
+        f"O poller tentou publicar '{slot_label}' ({now.date().isoformat()}) e um erro interrompeu a publicacao "
+        "no meio (ex: Facebook saiu mas Instagram falhou, ou vice-versa -- nao da pra saber automaticamente qual "
+        "etapa completou). Para nao arriscar duplicar o que ja saiu, esse slot foi marcado como publicado -- ele "
+        "NAO sera tentado de novo automaticamente. Confira manualmente no Facebook/Instagram da TopTop o que "
+        f"realmente foi publicado, e publique manualmente qualquer item que estiver faltando.\n\nErro original: {exc}"
+    )
+
+
 def load_log():
     if not os.path.exists(LOG_PATH):
         return {}
@@ -190,9 +211,17 @@ def main():
 
     if FORCE_SLOT:
         print(f"Forcando slot '{FORCE_SLOT}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
-        result = handle_story()
+        key = f"{today_key}_{FORCE_SLOT}"
+        try:
+            result = handle_story()
+        except Exception as exc:
+            if not DRY_RUN:
+                handle_partial_failure(FORCE_SLOT, exc, now)
+                log[key] = {"posted_at": now.isoformat(timespec="seconds"), "posting_error": str(exc)}
+                save_log(log)
+            raise
         if not DRY_RUN:
-            log[f"{today_key}_{FORCE_SLOT}"] = {"posted_at": now.isoformat(timespec="seconds"), **result}
+            log[key] = {"posted_at": now.isoformat(timespec="seconds"), **result}
             save_log(log)
         return
 
@@ -206,7 +235,14 @@ def main():
         if key in log:
             continue
         print(f"Disparando slot '{entry['slot']}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
-        result = handle_story()
+        try:
+            result = handle_story()
+        except Exception as exc:
+            if not DRY_RUN:
+                handle_partial_failure(entry["slot"], exc, now)
+                log[key] = {"posted_at": now.isoformat(timespec="seconds"), "posting_error": str(exc)}
+                save_log(log)
+            raise
         if not DRY_RUN:
             log[key] = {"posted_at": now.isoformat(timespec="seconds"), **result}
             save_log(log)
