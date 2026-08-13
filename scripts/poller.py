@@ -58,7 +58,11 @@ def run(cmd):
     result = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", env=env)
     if result.returncode != 0:
         print(f"ERRO rodando {cmd}:\n{result.stderr}", file=sys.stderr)
-        raise SystemExit(1)
+        # NAO usar SystemExit -- nao e subclasse de Exception, entao o
+        # "except Exception" que aciona a protecao contra post duplicado
+        # nunca capturava isso (confirmado 2026-08-13 no Bernardino: post
+        # duplicado real no Facebook por causa exatamente disso).
+        raise RuntimeError(f"comando falhou (exit {result.returncode}): {cmd}")
     return result.stdout.strip()
 
 
