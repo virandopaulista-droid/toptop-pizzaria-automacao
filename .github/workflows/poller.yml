@@ -70,15 +70,30 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Checa se ha algo a postar agora (sem montar o Drive)
+        id: gate
+        run: |
+          if [ -n "${{ inputs.force_slot }}" ]; then
+            echo "due=true" >> "$GITHUB_OUTPUT"
+            echo "forcado via workflow_dispatch (force_slot) -- pulando checagem"
+          elif python3 scripts/check_due.py; then
+            echo "due=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "due=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Install system dependencies
+        if: steps.gate.outputs.due == 'true'
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq ffmpeg fuse3
 
       - name: Install rclone
+        if: steps.gate.outputs.due == 'true'
         run: curl https://rclone.org/install.sh | sudo bash
 
       - name: Configure rclone and mount Google Drive
+        if: steps.gate.outputs.due == 'true'
         run: |
           mkdir -p ~/.config/rclone
           printf '%s' "$RCLONE_CONFIG_SECRET" > ~/.config/rclone/rclone.conf
@@ -126,6 +141,7 @@ jobs:
           echo "AGENTE_STORIES_DIR=$agente_dir" >> "$GITHUB_ENV"
 
       - name: Write .env
+        if: steps.gate.outputs.due == 'true'
         run: |
           cat > .env <<EOF
           FB_PAGE_ACCESS_TOKEN="$FB_PAGE_ACCESS_TOKEN"
@@ -135,6 +151,7 @@ jobs:
           cat .env | sed 's/^\(FB_PAGE_ACCESS_TOKEN\)=.*/\1=***/'
 
       - name: Run poller
+        if: steps.gate.outputs.due == 'true'
         run: |
           extra_args=()
           if [ -n "${{ inputs.force_slot }}" ]; then
