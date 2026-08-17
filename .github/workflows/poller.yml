@@ -103,10 +103,28 @@ jobs:
           echo "=== teste direto de conexao (rclone about gdrive:) ==="
           rclone about gdrive: || echo "(rclone about falhou, exit $?)"
           mkdir -p "$HOME/gdrive"
-          if ! rclone mount gdrive: "$HOME/gdrive" \
-            --daemon --vfs-cache-mode=minimal --dir-cache-time=1h \
-            --log-file="$HOME/rclone-mount.log" --log-level=INFO; then
-            echo "##[error] comando 'rclone mount' retornou erro na hora (nao entrou em background)"
+          # O client_id/token do rclone e compartilhado entre os 5 clientes
+          # da agencia -- de vez em quando um "invalid_grant" aparece
+          # (confirmado 2026-08-12: outro processo renovando o mesmo token
+          # ao mesmo tempo), quase sempre transitorio. Tenta de novo antes
+          # de desistir, em vez de perder o slot do dia inteiro.
+          mount_ok=""
+          for attempt in 1 2 3; do
+            if rclone mount gdrive: "$HOME/gdrive" \
+              --daemon --vfs-cache-mode=minimal --dir-cache-time=1h \
+              --log-file="$HOME/rclone-mount.log" --log-level=INFO; then
+              mount_ok=1
+              break
+            fi
+            echo "rclone mount falhou (tentativa $attempt/3):"
+            cat "$HOME/rclone-mount.log" 2>/dev/null || echo "(sem log)"
+            if [ "$attempt" != "3" ]; then
+              echo "aguardando 20s antes de tentar de novo..."
+              sleep 20
+            fi
+          done
+          if [ -z "$mount_ok" ]; then
+            echo "##[error] comando 'rclone mount' falhou 3x seguidas (nao entrou em background)"
             echo "=== rclone mount log ==="
             cat "$HOME/rclone-mount.log" 2>/dev/null || echo "(sem log)"
             exit 1

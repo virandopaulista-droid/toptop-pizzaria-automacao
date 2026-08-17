@@ -214,8 +214,11 @@ def main():
         check_missed_days(now, log)
 
     if FORCE_SLOT:
-        print(f"Forcando slot '{FORCE_SLOT}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
         key = f"{today_key}_{FORCE_SLOT}"
+        if key in log:
+            print(f"Slot '{FORCE_SLOT}' de hoje ja foi postado ({log[key].get('posted_at')}) -- ignorando force-slot pra nao duplicar.")
+            return
+        print(f"Forcando slot '{FORCE_SLOT}' ({'DRY-RUN' if DRY_RUN else 'LIVE'})...")
         try:
             result = handle_story()
         except Exception as exc:
