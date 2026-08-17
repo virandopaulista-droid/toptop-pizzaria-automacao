@@ -171,6 +171,10 @@ jobs:
       - name: Run poller
         if: steps.gate.outputs.due == 'true'
         run: |
+          # Ver commit equivalente no bernardino-restaurante-automacao
+          # (2026-08-17): checkout velho + mount demorado = risco real de
+          # post duplicado se outra execucao publicou nesse meio tempo.
+          git pull --ff-only origin master || echo "AVISO: git pull falhou, seguindo com o checkout atual"
           extra_args=()
           if [ -n "${{ inputs.force_slot }}" ]; then
             extra_args+=(--force-slot "${{ inputs.force_slot }}")
