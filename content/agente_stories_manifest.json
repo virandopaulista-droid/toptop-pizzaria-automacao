@@ -6,21 +6,31 @@
       "category": "salgada",
       "type": "video",
       "used": false,
-      "used_at": null
+      "used_at": null,
+      "allowed_weekdays": [
+        5,
+        6
+      ]
     },
     {
       "file": "92.mp4",
       "category": "salgada",
       "type": "video",
       "used": true,
-      "used_at": "2026-08-02T20:10:14"
+      "used_at": "2026-08-02T20:10:14",
+      "allowed_weekdays": [
+        5
+      ]
     },
     {
       "file": "93.mp4",
       "category": "salgada",
       "type": "video",
       "used": false,
-      "used_at": null
+      "used_at": null,
+      "allowed_weekdays": [
+        6
+      ]
     },
     {
       "file": "94.mp4",
@@ -46,14 +56,20 @@
       "category": "salgada",
       "type": "video",
       "used": false,
-      "used_at": null
+      "used_at": null,
+      "allowed_weekdays": [
+        5
+      ]
     },
     {
       "file": "98.mp4",
       "category": "salgada",
       "type": "video",
       "used": false,
-      "used_at": null
+      "used_at": null,
+      "allowed_weekdays": [
+        6
+      ]
     },
     {
       "file": "99.mp4",
@@ -102,7 +118,12 @@
       "category": "doce",
       "type": "video",
       "used": false,
-      "used_at": null
+      "used_at": null,
+      "allowed_weekdays": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "file": "107.mp4",
