@@ -3,13 +3,21 @@
 category -- salgada/doce naturally rotate in proportion to how many of each
 exist in the pool) and marks it used.
 
-If the pool runs out of unused assets, it auto-resets (all marked unused
-again) so the rotation never stalls -- this folder doesn't grow daily like
-a client's real photo library does.
+Some assets talk about a specific day in the video/caption itself (e.g. a
+weekend promo) -- those carry an "allowed_weekdays" list (0=Monday ...
+6=Sunday) in the manifest and are only eligible on those days. Everything
+else (no "allowed_weekdays" key) is fair game any day, same as before.
+Added 2026-08-19 after 96.mp4 (a weekend-themed video) posted on a Tuesday.
+
+If the pool of eligible-and-unused assets runs out, it auto-resets (marks
+just the eligible-for-today ones unused again) so the rotation never
+stalls -- this folder doesn't grow daily like a client's real photo
+library does.
 
 Usage: select_story.py
 Prints one line: category<TAB>type<TAB>absolute_path
 """
+import datetime
 import json
 import os
 import random
@@ -35,17 +43,18 @@ def save(data):
 
 
 def main():
+    today_weekday = datetime.datetime.now().weekday()
     data = load()
     assets = data["assets"]
-    pool = [a for a in assets if not a["used"]]
+    eligible = [a for a in assets if today_weekday in a.get("allowed_weekdays", range(7))]
+    pool = [a for a in eligible if not a["used"]]
     if not pool:
-        for a in assets:
+        for a in eligible:
             a["used"] = False
             a["used_at"] = None
-        pool = assets
+        pool = eligible
     entry = random.choice(pool)
     entry["used"] = True
-    import datetime
     entry["used_at"] = datetime.datetime.now().isoformat(timespec="seconds")
     save(data)
     path = os.path.join(ASSETS_DIR, entry["file"])

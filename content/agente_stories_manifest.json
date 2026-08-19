@@ -34,7 +34,12 @@
       "category": "salgada",
       "type": "video",
       "used": true,
-      "used_at": "2026-08-18T20:01:39"
+      "used_at": "2026-08-18T20:01:39",
+      "allowed_weekdays": [
+        4,
+        5,
+        6
+      ]
     },
     {
       "file": "97.mp4",
