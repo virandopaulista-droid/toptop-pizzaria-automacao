@@ -5,8 +5,11 @@ exist in the pool) and marks it used.
 
 Some assets talk about a specific day in the video/caption itself (e.g. a
 weekend promo) -- those carry an "allowed_weekdays" list (0=Monday ...
-6=Sunday) in the manifest and are only eligible on those days. Everything
-else (no "allowed_weekdays" key) is fair game any day, same as before.
+6=Sunday) in the manifest and are only eligible on those days, AND get
+picked ahead of the generic (no "allowed_weekdays") pool on a day they
+match -- otherwise a handful of day-specific videos would rarely surface
+at all next to ~10x as many generic ones. Everything without the key
+stays fair game any day, same as before.
 Added 2026-08-19 after 96.mp4 (a weekend-themed video) posted on a Tuesday.
 
 If the pool of eligible-and-unused assets runs out, it auto-resets (marks
@@ -47,7 +50,15 @@ def main():
     data = load()
     assets = data["assets"]
     eligible = [a for a in assets if today_weekday in a.get("allowed_weekdays", range(7))]
-    pool = [a for a in eligible if not a["used"]]
+
+    # Day-specific assets (allowed_weekdays present) get first pick over
+    # generic ones on their day -- otherwise they're eligible but easily
+    # drowned out by the ~10x larger generic pool and could go months
+    # without actually being picked. Falls back to the full eligible pool
+    # (day-specific + generic) once today's day-specific items are all used.
+    day_specific = [a for a in eligible if "allowed_weekdays" in a]
+    day_specific_unused = [a for a in day_specific if not a["used"]]
+    pool = day_specific_unused if day_specific_unused else [a for a in eligible if not a["used"]]
     if not pool:
         for a in eligible:
             a["used"] = False
