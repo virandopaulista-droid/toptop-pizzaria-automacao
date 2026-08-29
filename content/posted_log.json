@@ -163,11 +163,11 @@
   },
   "2026-08-27_story": {
     "posted_at": "2026-08-27T20:01:27",
-    "posting_error": "comando falhou (exit 1): ['bash', '/home/runner/work/toptop-pizzaria-automacao/toptop-pizzaria-automacao/scripts/post_story_video_instagram.sh', 'https://drive.google.com/uc?export=download&id=1QJz2ktT7D_wSCzM1y2qgNvoVYAFR8lsw']"
+    "instagram_catchup": "18023970101904437"
   },
   "2026-08-28_story_1": {
     "posted_at": "2026-08-28T19:32:37",
-    "posting_error": "comando falhou (exit 1): ['/opt/hostedtoolcache/Python/3.12.14/x64/bin/python3', '/home/runner/work/toptop-pizzaria-automacao/toptop-pizzaria-automacao/scripts/resolve_drive_url.py', '133.mp4']"
+    "instagram_catchup": "18004373042990177"
   },
   "2026-08-28_story_2": {
     "posted_at": "2026-08-28T21:31:04",
