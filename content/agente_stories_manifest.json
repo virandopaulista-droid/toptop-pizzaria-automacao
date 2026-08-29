@@ -423,8 +423,8 @@
       "file": "A45BA167-E794-4D32-9AFA-790A09ACF397.jpg",
       "category": "salgada",
       "type": "image",
-      "used": false,
-      "used_at": null
+      "used": true,
+      "used_at": "2026-08-29T19:31:23"
     },
     {
       "file": "B40D1DE6-7CFB-4233-A46F-916B3AF76F0E.jpg",
