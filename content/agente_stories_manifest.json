@@ -479,8 +479,8 @@
       "file": "f0b1c64213f74e14955d5f92f2616cf5.mov",
       "category": "salgada",
       "type": "video",
-      "used": false,
-      "used_at": null
+      "used": true,
+      "used_at": "2026-09-12T21:31:08"
     }
   ]
 }
