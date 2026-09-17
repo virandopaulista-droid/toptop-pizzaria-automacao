@@ -444,8 +444,8 @@
       "file": "E3F5FD4F-495D-45C0-9D0C-543C57F794E5.jpg",
       "category": "doce",
       "type": "image",
-      "used": false,
-      "used_at": null
+      "used": true,
+      "used_at": "2026-09-17T20:09:36"
     },
     {
       "file": "E599338A-831B-4C6E-90EA-9D4C9A8FFCBC.jpg",
