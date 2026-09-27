@@ -392,5 +392,9 @@
     "category": "salgada",
     "type": "image",
     "path": "/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/88789800-AEEB-49F6-A783-9DA68377D4BB.jpg"
+  },
+  "2026-09-27_story_1": {
+    "posted_at": "2026-09-27T20:13:10",
+    "posting_error": "comando falhou (exit 1): ['bash', '/home/runner/work/toptop-pizzaria-automacao/toptop-pizzaria-automacao/scripts/post_story_all.sh', '/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/E599338A-831B-4C6E-90EA-9D4C9A8FFCBC.jpg']"
   }
 }
