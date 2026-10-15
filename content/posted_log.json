@@ -510,5 +510,9 @@
     "category": "doce",
     "type": "video",
     "path": "/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/145.mp4"
+  },
+  "2026-10-15_story": {
+    "posted_at": "2026-10-15T20:12:45",
+    "posting_error": "comando falhou (exit 1): ['bash', '/home/runner/work/toptop-pizzaria-automacao/toptop-pizzaria-automacao/scripts/post_story_video_fb.sh', '/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/102.mp4']"
   }
 }
