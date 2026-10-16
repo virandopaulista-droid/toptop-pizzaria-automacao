@@ -514,5 +514,11 @@
   "2026-10-15_story": {
     "posted_at": "2026-10-15T20:12:45",
     "posting_error": "comando falhou (exit 1): ['bash', '/home/runner/work/toptop-pizzaria-automacao/toptop-pizzaria-automacao/scripts/post_story_video_fb.sh', '/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/102.mp4']"
+  },
+  "2026-10-16_story_1": {
+    "posted_at": "2026-10-16T20:02:34",
+    "category": "salgada",
+    "type": "video",
+    "path": "/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/d8e15dd833c245459d92527d96c5a5e1.mov"
   }
 }
