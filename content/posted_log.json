@@ -644,5 +644,9 @@
     "category": "salgada",
     "type": "video",
     "path": "/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/146.mp4"
+  },
+  "2026-10-31_story_2": {
+    "posted_at": "2026-10-31T21:32:14",
+    "posting_error": "comando falhou (exit 1): ['bash', '/home/runner/work/toptop-pizzaria-automacao/toptop-pizzaria-automacao/scripts/post_story_video_fb.sh', '/home/runner/gdrive/Agência BEEF MTK/Clientes /TopTop Pizzaria /Storie/AGENTE - STORIES/101.mp4']"
   }
 }
