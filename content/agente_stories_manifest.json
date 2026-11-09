@@ -5,8 +5,8 @@
       "file": "91.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-08-22T21:31:22",
+      "used": false,
+      "used_at": null,
       "allowed_weekdays": [
         5,
         6
@@ -26,8 +26,8 @@
       "file": "93.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-08-23T19:31:20",
+      "used": false,
+      "used_at": null,
       "allowed_weekdays": [
         6
       ]
@@ -37,14 +37,14 @@
       "category": "salgada",
       "type": "video",
       "used": true,
-      "used_at": "2026-11-02T20:01:34"
+      "used_at": "2026-11-08T21:31:27"
     },
     {
       "file": "96.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-08-18T20:01:39",
+      "used": false,
+      "used_at": null,
       "allowed_weekdays": [
         4,
         5,
@@ -65,8 +65,8 @@
       "file": "98.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-08-23T21:31:19",
+      "used": false,
+      "used_at": null,
       "allowed_weekdays": [
         6
       ]
@@ -75,50 +75,50 @@
       "file": "99.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-30T19:31:19"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "100.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-11T21:55:48"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "101.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-31T21:32:14"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "102.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-15T20:12:46"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "103.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-06T20:13:19"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "105.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-01T20:13:24"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "106.mp4",
       "category": "doce",
       "type": "video",
-      "used": true,
-      "used_at": "2026-08-21T19:31:16",
+      "used": false,
+      "used_at": null,
       "allowed_weekdays": [
         4,
         5,
@@ -129,358 +129,358 @@
       "file": "107.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-18T21:31:20"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "108.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-01T19:31:20"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "109.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-02T21:54:06"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "110.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-03T20:01:25"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "111.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-07T19:31:19"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "112.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-08T19:31:26"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "113.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-12T20:13:39"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "114.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-09-29T20:13:38"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "116.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-23T21:36:07"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "117.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-29T20:02:20"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "118.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-01T21:31:25"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "124.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-09-24T20:13:55"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "125.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-09T22:27:59"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "126.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-24T19:31:34"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "127.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-21T20:01:30"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "128.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-19T20:01:35"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "129.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-18T19:31:32"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "130.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-09-28T20:14:08"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "131.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-06T19:31:19"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "132.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-30T21:31:29"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "133.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-13T20:13:14"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "134.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-17T20:02:50"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "135.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-22T20:01:29"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "136.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-11T20:12:59"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "137.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-06T21:31:19"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "138.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-20T20:01:31"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "139.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-09-30T20:13:47"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "140.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-11-05T20:01:32"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "142.mp4",
       "category": "doce",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-23T19:55:46"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "144.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-09-25T20:12:37"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "145.mp4",
       "category": "doce",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-14T20:12:50"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "146.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-31T19:31:22"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "147.mp4",
       "category": "doce",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-25T21:31:35"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "148.mp4",
       "category": "doce",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-28T20:01:26"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "149.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-02T20:12:37"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "150.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-10T21:39:15"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "151.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-27T20:01:29"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "152.mp4",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-03T20:12:48"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "099ABD72-CE40-40E9-A8C8-BC27C7EA37AB.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-11-04T20:07:35"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "88789800-AEEB-49F6-A783-9DA68377D4BB.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-09-26T20:12:37"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "89083964-575A-4279-A4C4-AE409725D89F.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-10-17T22:31:58"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "A31041D2-EB2A-4B8D-B1F1-0C541018E0EA.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-10-05T20:13:47"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "A45BA167-E794-4D32-9AFA-790A09ACF397.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-10-26T20:01:41"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "B40D1DE6-7CFB-4233-A46F-916B3AF76F0E.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-10-04T20:13:03"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "E0C04A7B-36F7-4025-ACE5-33A88612F9D8.jpg",
       "category": "doce",
       "type": "image",
-      "used": true,
-      "used_at": "2026-10-07T20:13:19"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "E3F5FD4F-495D-45C0-9D0C-543C57F794E5.jpg",
       "category": "doce",
       "type": "image",
-      "used": true,
-      "used_at": "2026-11-07T21:31:16"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "E599338A-831B-4C6E-90EA-9D4C9A8FFCBC.jpg",
       "category": "salgada",
       "type": "image",
-      "used": true,
-      "used_at": "2026-09-27T20:13:12"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "42fe682ecba1404e8c512e71bc0dccf2.mov",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-08T20:14:23"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "5a25db8a2f3644ecb3cf4d4b0d809692.mov",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-25T19:31:20"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "d8e15dd833c245459d92527d96c5a5e1.mov",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-16T20:02:35"
+      "used": false,
+      "used_at": null
     },
     {
       "file": "f0b1c64213f74e14955d5f92f2616cf5.mov",
       "category": "salgada",
       "type": "video",
-      "used": true,
-      "used_at": "2026-10-24T21:31:20"
+      "used": false,
+      "used_at": null
     }
   ]
 }
